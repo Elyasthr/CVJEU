@@ -1,0 +1,215 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Press Start 2P', sans-serif;
+
+}
+
+#box_annonce{
+    display: none;
+    position: fixed;
+
+    z-index: 1;
+
+    top: 35%;
+    margin: 30px;
+    padding: 20px;
+
+    background-color: white;
+    border: 2px solid red;
+    color: red;
+    text-align: center;
+    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
+}
+
+#box_choix{
+    display: none;
+    position: fixed;
+
+   
+    z-index: 1;
+
+    top: 50%;
+    left: 36%;
+    
+    padding: 20px;
+
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
+
+    font-size: 10px;
+}
+
+#box_choix2{
+    display: none;
+    position: fixed;
+
+   
+    z-index: 1;
+
+    top: 45%;
+    left: 33%;
+    
+    padding: 20px;
+
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
+
+    font-size: 10px;
+
+}
+
+.croix{
+    display: block;
+	font-weight: bold;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.croix:hover{
+    cursor: pointer;
+}
+
+
+.choix{
+    display: flex;
+    justify-content: space-around;
+}
+
+.choix a{
+    font-size: 10px;
+    border: 2px solid black;
+    width: 65px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.choix a:hover{
+    background-color: black;
+    color: white;
+}
+.choix a:active {
+    background-color: black;
+    color: white;
+    transform: translateY(4px);
+  }
+
+
+
+
+#root {
+    width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+#titre{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 45px;
+    margin: 0;
+}
+
+#container{
+    background: url('img/wallpaper1.jpg');
+    height: 630px;
+    border: 5px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+#center{
+    
+    display: flex;
+    justify-content: space-between;
+    height: 386px;
+}
+
+#navigation{
+    background-color: white;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0 30px 0;
+    border: 3px solid black;
+}
+
+ul{
+    margin:0;
+    padding:0;
+}
+
+li{
+    margin:0;
+    padding:40px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+li:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.container_button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    padding: 30px;
+}
+
+
+button{
+    
+    font-family: 'Press Start 2P', sans-serif;
+    color: black;
+    background-color: white;
+    height: 50px;
+    width: 150px;
+    border: 3px solid black;
+    transition-duration: 0.2s;
+    
+}
+
+button:active {
+    background-color: black;
+    color: white;
+    transform: translateY(4px);
+  }
+
+#download{
+    display: flex;
+    justify-content: center;
+}
+
+#download_item{
+    width: 200px;
+    height: 50px;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:active{
+    color:white;
+}
