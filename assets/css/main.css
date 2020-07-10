@@ -6,6 +6,38 @@ body{
 
 }
 
+
+#monCanvas,.monCV{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    border: 2px dashed black;
+    top: 154px;
+    height: 640px;
+    width: 1100px;
+}
+
+#monCanvas a,#monCanvas h1{
+    color: red;
+    justify-content: center;
+    text-align: center;
+}
+
+#canvas{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+    border: 2px dashed white;
+    top: 300px;
+    left: 420px;
+}
+
+.gameover{
+    width: 350px;
+}
+
 #box_annonce{
     display: none;
     position: fixed;
@@ -23,7 +55,7 @@ body{
     box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
 }
 
-#box_choix{
+.box_choix{
     display: none;
     position: fixed;
 
@@ -43,25 +75,9 @@ body{
     font-size: 10px;
 }
 
-#box_choix2{
-    display: none;
-    position: fixed;
-
-   
-    z-index: 1;
-
+.cv{
     top: 45%;
     left: 33%;
-    
-    padding: 20px;
-
-    background-color: white;
-    border: 2px solid black;
-    color: black;
-    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
-
-    font-size: 10px;
-
 }
 
 .croix{
@@ -120,7 +136,7 @@ body{
 }
 
 #container{
-    background: url('img/wallpaper1.jpg');
+    background: url('../../img/wallpaper1.jpg');
     height: 630px;
     border: 5px solid white;
     display: flex;
