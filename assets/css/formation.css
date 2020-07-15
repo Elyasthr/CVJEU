@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+
+button{
+    
+    font-family: 'Press Start 2P', sans-serif;
+    color: black;
+    background-color: white;
+    height: 50px;
+    width: 150px;
+    border: 3px solid black;
+    transition-duration: 0.2s;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    box-shadow: 0px 0px 40px 9px rgb(255, 255, 255,0.4);
+}
+
+button:active {
+    background-color: black;
+    color: white;
+    transform: translateY(4px);
+    box-shadow: 0px 0px 40px 9px rgb(0, 0, 0,0.4);
+  }
+
+/*deux fichier css pouyr un html (canvas choix etc) ceux utiliser dans dautre page sans vouloir tout melanger*/
+.root {
+    width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+#titre{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 45px;
+    margin: 0;
+    font-size: 55px;
+}
+
+.container{
+    background-color: white;
+    height: auto;
+    border: 5px solid darkgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+h3,h4,h5,h6{
+    text-align: center;
+    color: black
+}
+
+li{
+    list-style-type: none;
+    padding: 20px 0;
+    color: darkgreen;
+}

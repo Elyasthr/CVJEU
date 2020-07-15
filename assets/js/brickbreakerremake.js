@@ -1,27 +1,68 @@
-$(function() {
+$(function() {    
+    // ecouteurs ///////////////////////////////////////////////////////////////////////
+    document.addEventListener("keydown",
+        function(e){
+            if(e.key == "Right" || e.key == "ArrowRight"){
+                paddle.flecheDroite = true;
+            }
+            else if(e.key == "Left" || e.key == "ArrowLeft") {
+                paddle.flecheGauche = true;
+            }
+    });
+    
+    document.addEventListener("keyup",
+        function(e){
+            if(e.key == "Right" || e.key == "ArrowRight") {
+                paddle.flecheDroite = false;
+            }
+            else if(e.key == "Left" || e.key == "ArrowLeft") {
+                paddle.flecheGauche = false;
+            }
+    });
+
+    //Recuperation du canvas //////////////////////////////////////////////////////////
+    monCanvas = document.getElementById('canvas');
+    ctx = monCanvas.getContext('2d');
+    largeurCanvas = monCanvas.width;
+    hauteurCanvas = monCanvas.height;
+
+    //implementation des effet sonore du jeu 
+    var audio = new Audio();
+    var playlist = ['audio/lose.mp3','audio/win.mp3','audio/brickbreak.mp3'];
     
 
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    var largeurCanvas = canvas.width ;
-    var hauteurCanvas = canvas.height;
-    var x = largeurCanvas/2;
-    var y = hauteurCanvas -30;
-    var dx = 2;
-    var dy = -2;
+    // Objet du jeu ////////////////////////////////////////////////////////////////////
+    var jeu = {
+        points: 0,
 
-    var score = 0;
+        score: function(){
+            ctx.font = "20px 'Press Start 2P'";
+            ctx.fillStyle = "white";
+            ctx.fillText("SCORE: "+ jeu.points,(largeurCanvas/2)-80, 30);
+        },
 
+        dessin: function(){
+            ctx.clearRect(0, 0,largeurCanvas,hauteurCanvas);
+            balle.mouvement();
+            paddle.mouvement();
+            murDeBriques.collision();
+            jeu.score();
+        }
+
+    };
+
+    // Objet balle ////////////////////////////////////////////////////////////////////
     var balle = {
-
         rayon: 10,
         couleur: 'white',
-        x2: x,
-        y2: y,
+        x: largeurCanvas/2,
+        y: hauteurCanvas-30,
+        dx: 2,
+        dy:-2,
 
         dessin: function(){
             ctx.beginPath();
-            ctx.arc(this.x2, this.y2,this.rayon, 0, Math.PI*2);
+            ctx.arc(this.x, this.y,this.rayon, 0, Math.PI*2);
             ctx.fillStyle = this.couleur;
             ctx.fill();
             ctx.closePath();
@@ -30,20 +71,23 @@ $(function() {
         mouvement: function(){
                 
                 this.dessin();
-                if(this.x2 + dx > largeurCanvas - this.rayon || this.x2 + dx < this.rayon){
-                    dx = -dx;
+                if(this.x + this.dx > largeurCanvas - this.rayon || this.x + this.dx < this.rayon){
+                    this.dx = -this.dx;
                 }
 
-                if(this.y2 + dy < this.rayon){
-                    dy = -dy;
+                if(this.y + this.dy < this.rayon){
+                    this.dy = -this.dy;
                 } 
-                else if(this.y2 + dy > hauteurCanvas - this.rayon){
-                    if(this.x2 > paddle.position && this.x2 < paddle.position + paddle.largeur){
-                        dy = -dy;
+                else if(this.y + this.dy > hauteurCanvas - this.rayon){
+                    if(this.x > paddle.position && this.x < paddle.position + paddle.largeur){
+                        this.dy = -this.dy;
                     }
                     else{
-                        clearInterval(jeu);
+                        clearInterval(partie);
                         $('.box_choix.gameover').show();
+                        audio.src = (playlist[0]);
+                        audio.pause();
+                        audio.play();
                         $('#monCanvas > div > div > a:nth-child(1)').click(function(){
                             document.location.reload();
                         })
@@ -51,15 +95,18 @@ $(function() {
                         //Sinon redirection CV
                     }
                 }
-                this.x2 += dx;
-                this.y2 += dy;
+                this.x += this.dx;
+                this.y += this.dy;
         },
     };
-
+    
+    // Objet paddle ///////////////////////////////////////////////////////////////////
     var paddle = {
         hauteur: 15,
         largeur: 100,
         position: (largeurCanvas/2)-50,
+        flecheDroite: false,
+        flecheGauche: false,
 
         dessin: function(){
             ctx.beginPath();
@@ -71,13 +118,14 @@ $(function() {
 
         mouvement: function(){
             this.dessin();
-            if(flecheDroite) {
+
+            if(this.flecheDroite) {
                 this.position += 5;
                 if (this.position + this.largeur > largeurCanvas){
                     this.position = largeurCanvas - this.largeur;
                 }
             }
-            else if(flecheGauche) {
+            else if(this.flecheGauche) {
                 this.position -= 5;
                 if (this.position < 0){
                     this.position = 0;
@@ -85,7 +133,8 @@ $(function() {
             }
         }
     }
-
+    
+    // Objet mur de brique /////////////////////////////////////////////////////////////
     var murDeBriques = {
         brique:{
             largeur: 100,
@@ -136,15 +185,22 @@ $(function() {
             for(var c = 0; c < this.nbColonnes; c++){
                 for(var r = 0; r < this.nbRangees; r++){
                     var uneBrique = this.murDeBriques[c][r];
-                    console.log(uneBrique.status);
                     if(uneBrique.status == 1){
-                        if(balle.x2 > uneBrique.x && balle.x2 < uneBrique.x + this.brique.largeur && balle.y2 > uneBrique.y && balle.y2 < uneBrique.y + this.brique.hauteur){
-                            dy = -dy;
+                        if(balle.x > uneBrique.x && balle.x < uneBrique.x + this.brique.largeur && balle.y > uneBrique.y && balle.y < uneBrique.y + this.brique.hauteur){
+                            audio.src = (playlist[2]);
+                            audio.pause();
+                            audio.play();
+                            balle.dy = -balle.dy;
                             uneBrique.status = 0;
-                            score++
-                            if(score == this.nbColonnes * this.nbRangees){
-                                clearInterval(jeu);
-                                window.location.replace('formation.html');
+                            jeu.points++
+                            if(jeu.points == this.nbColonnes * this.nbRangees){
+                                clearInterval(partie);
+                                audio.src = (playlist[1]);
+                                audio.pause();
+                                audio.play();
+                                setTimeout(function() {
+                                    window.location.replace('formation.html');
+                                },2000); 
                             }
                         }
                     }
@@ -155,46 +211,8 @@ $(function() {
             
 
     }
-    
-    var flecheDroite = false;
-    var flecheGauche = false;
 
-    document.addEventListener("keydown",
-        function(e){
-            if(e.key == "Right" || e.key == "ArrowRight"){
-                flecheDroite = true;
-            }
-            else if(e.key == "Left" || e.key == "ArrowLeft") {
-                flecheGauche = true;
-            }
-    })
-    
-    document.addEventListener("keyup",
-        function(e){
-            if(e.key == "Right" || e.key == "ArrowRight") {
-                flecheDroite = false;
-            }
-            else if(e.key == "Left" || e.key == "ArrowLeft") {
-                flecheGauche = false;
-            }
-    })
-
-    
-    function drawScore() {
-        ctx.font = "20px 'Press Start 2P'";
-        ctx.fillStyle = "white";
-        ctx.fillText("SCORE: "+score, (largeurCanvas/2)-80, 30);
-    }
-
-    function draw(){
-        ctx.clearRect(0, 0, largeurCanvas, hauteurCanvas);
-        balle.mouvement();
-        paddle.mouvement();
-        murDeBriques.collision();
-        drawScore();
-    }
-
+    // lancement du jeu ////////////////////////////////////////////////////////////////
     murDeBriques.preConstruction();
-
-    var jeu = setInterval(draw,10);
+    var partie = setInterval(jeu.dessin,8);
 })
