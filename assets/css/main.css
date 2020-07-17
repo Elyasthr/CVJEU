@@ -5,42 +5,77 @@ body{
     font-family: 'Press Start 2P', sans-serif;
 }
 
-.box_apropos p{
-    text-align: justify;
-    line-height: 30px;
-}
-
-#monCanvas,.monCV{
-    background: url('../../img/wallpaper1.jpg');
-    display: block;
-    position: fixed;
-    z-index: 1;
-    border: 2px solid white;
-    top: 154px;
-    height: 640px;
+.root {
     width: 1100px;
-}
+    margin: 0 auto;
+    background-color: white;
+  }
 
-#monCanvas a,#monCanvas h1{
-    color: darkred;
-    justify-content: center;
+#titre{
     text-align: center;
-}
-
-#canvas{
-    display: block;
-    position: fixed;
-    z-index: 1;
     background-color: black;
-    border: 2px solid white;
-    top: 300px;
-    left: 420px;
+    color: white;
+    padding: 45px;
+    margin: 0;
 }
 
-.gameover{
-    width: 350px;
+.container{
+    background: url('../../img/wallpaper1.jpg');
+    height: 630px;
+    border: 5px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
+#center{
+    
+    display: flex;
+    justify-content: space-between;
+    height: 386px;
+}
+
+#navigation{
+    background-color: white;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0 30px 0;
+    border: 3px solid black;
+}
+
+ul{
+    margin:0;
+    padding:0;
+}
+
+li{
+    margin:0;
+    padding:40px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+li:hover{
+    background-color: black;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:active{
+    color:white;
+}
+/****************************************************************/
+/**************************** ANNONCE ****************************/
 #box_annonce{
     display: none;
     position: fixed;
@@ -58,6 +93,8 @@ body{
     box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
 }
 
+/****************************************************************/
+/************************ CROIX ET CHOIX ************************/
 .box_choix{
     display: none;
     position: fixed;
@@ -76,56 +113,6 @@ body{
     box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
 
     font-size: 10px;
-}
-
-.box_apropos{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 20%;
-    right: 20%;
-    top: 25%;
-    padding: 20px 40px;
-    background-color: black;
-    border: 2px solid white;
-    color: white;
-    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
-    font-size: 14px;
-}
-
-.box_contact{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 20%;
-    right: 20%;
-    top: 40%;
-    padding: 20px 40px;
-    background-color: black;
-    border: 2px solid white;
-    color: white;
-    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
-    font-size: 14px;
-}
-
-.box_contact a{
-    color: white;
-    text-decoration: none;
-}
-
-.contact_item{
-    display: flex;
-    align-items: center;
-    padding: 0 0 20px 200px;
-
-}
-
-.contact_item a{
-    padding-left: 20px;
-}
-.cv{
-    top: 45%;
-    left: 33%;
 }
 
 .croix{
@@ -165,88 +152,14 @@ body{
     color: white;
     transform: translateY(4px);
   }
-
-
-
-
-.root {
-    width: 1100px;
-    margin: 0 auto;
-    background-color: white;
-  }
-
-#titre{
-    text-align: center;
-    background-color: black;
-    color: white;
-    padding: 45px;
-    margin: 0;
-}
-
-.container{
-    background: url('../../img/wallpaper1.jpg');
-    height: 630px;
-    border: 5px solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-
-.containerbis{
-    background-color: white;
-    height: auto;
-    border: 5px solid white;
-    display: flex;
-    
-}
-
-
-#center{
-    
-    display: flex;
-    justify-content: space-between;
-    height: 386px;
-}
-
-#navigation{
-    background-color: white;
-    flex-grow: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 20px 0 30px 0;
-    border: 3px solid black;
-}
-
-ul{
-    margin:0;
-    padding:0;
-}
-
-li{
-    margin:0;
-    padding:40px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    color: black;
-    font-size: 30px;
-}
-
-li:hover{
-    background-color: black;
-    color: white;
-}
-
-
+/****************************************************************/
+/************************BOUTTON*********************************/
 .container_button{
     display: flex;
     flex-direction: column;
     justify-content: space-around; 
     padding: 30px;
 }
-
 
 button{
     
@@ -264,8 +177,62 @@ button:active {
     background-color: black;
     color: white;
     transform: translateY(4px);
-  }
+}
+/****************************************************************/
+/***************************CONTACT******************************/
+.box_contact{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 20%;
+    right: 20%;
+    top: 40%;
+    padding: 20px 40px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
+    font-size: 14px;
+}
 
+.box_contact a{
+    color: white;
+    text-decoration: none;
+}
+
+.contact_item{
+    display: flex;
+    align-items: center;
+    padding: 0 0 20px 200px;
+
+}
+
+.contact_item a{
+    padding-left: 20px;
+}
+/****************************************************************/
+/***************************APROPOS******************************/
+.box_apropos p{
+    text-align: justify;
+    line-height: 30px;
+}
+
+.box_apropos{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 20%;
+    right: 20%;
+    top: 25%;
+    padding: 20px 40px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
+    font-size: 14px;
+}
+/****************************************************************/
+/********************TELECHARGEMENT CV***************************/
 #download{
     display: flex;
     justify-content: center;
@@ -276,12 +243,35 @@ button:active {
     height: 50px;
     line-height: 20px;
 }
-
-a{
-    text-decoration: none;
-    color: black;
+/****************************************************************/
+/**************************** CANVAS ****************************/
+#monCanvas{
+    background: url('../../img/wallpaper1.jpg');
+    display: block;
+    position: fixed;
+    z-index: 1;
+    border: 2px solid white;
+    top: 154px;
+    height: 640px;
+    width: 1100px;
 }
 
-a:active{
-    color:white;
+#monCanvas a,#monCanvas h1{
+    color: darkred;
+    justify-content: center;
+    text-align: center;
+}
+
+#canvas{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+    border: 2px solid white;
+    top: 300px;
+    left: 420px;
+}
+
+.gameover{
+    width: 350px;
 }

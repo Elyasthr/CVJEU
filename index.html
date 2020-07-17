@@ -9,46 +9,30 @@
     <title>CV JEU</title>
 </head>
 <body>
-    <div class="box_choix formation">
-        <span class="croix">x</span>
-        <h1 class="question">Voulez-vous jouer ?</h1>
-        <div class="choix">
-            <a href="brickbreaker.html">OUI</a>
-            <a href="formation.html">NON</a>
-        </div>
-    </div>
-
-    <div class="box_choix experience">
-        <span class="croix">x</span>
-        <h1 class="question">Voulez-vous jouer ?</h1>
-        <div class="choix">
-            <a href="snake.html">OUI</a>
-            <a href="experience.html">NON</a>
-        </div>
-    </div>
-
-    <div class="box_choix projet">
-        <span class="croix">x</span>
-        <h1 class="question">Voulez-vous jouer ?</h1>
-        <div class="choix">
-            <a href="#">OUI</a>
-            <a href="projet.html">NON</a>
-        </div>
-    </div>
-
+    <!--box qui apparait au chargement de la page-->
     <div id="box_annonce">
         <span class="croix">x</span>
         <h1>Annonce Importante !</h1>
         <p>À la recherche d'une mission pratique sur une durée de 4 mois à partir du 24/09/2020, vous recherchez un développeur afin d'étoffer votre équipe ? Je me ferai un plaisir de vous rejoindre !</p>
     </div>
 
+    <!--box qui regroupe les choix de redirection des navigations-->
+    <div class="box_choix formation experience projet">
+        <span class="croix">x</span>
+        <h1 class="question">Voulez-vous jouer ?</h1>
+        <div class="choix">
+            <a href="#">OUI</a>
+            <a href="#">NON</a>
+        </div>
+    </div>
+    <!--box qui parle de moi-->
     <div class="box_apropos">
         <span class="croix">x</span>
         <p>Elyas TOUAHRIA 22 ans en formation de developpement web,titulaire du permis B et residant à Bagnolet, ville limitrophe de Paris, est un jeune homme vif d'esprit qui a soif d'apprendre et de decouverte, il aime la lecture diverses et variés, allant du Manga à l'Essai, il pratique le sport depuis son plus jeune âge comme de la Natation, la Boxe en passant par la Lutte, c'est un bricoleur qui aime reparer le materiel technologique defectueux et le remettre au point, il lui arrive d'être benevole dans des association.</p>
         <p>Il a une maitrise de l'Anglais professionel niveau B1.</p>
         <p>Ce site qu'il a lui même réalisé lui a permis de valider son premier projet de formation.</p>
     </div>
-
+    <!--box contact-->
     <div class="box_contact">
         <span class="croix">x</span>
         <div>
@@ -67,16 +51,17 @@
         </div>
     </div>
 
+    <!--partie principal et visible de la page d'acceuil-->
     <div class="root">
         <h1 id="titre">TOUAHRIA ELYAS DEVELOPPEUR JAVASCRIPT FULLSTACK</h1>
         <div class="container">
             <div id="little_container">
                 <div id="center">
                     <div class="container_button">
-                        <button class="item" type="button">
+                        <button type="button">
                             Son
                         </button>
-                        <button class="item" type="button">Contact</button>
+                        <button type="button">Contact</button>
                     </div>
                     <nav id="navigation">
                         <ul>
@@ -86,10 +71,10 @@
                         </ul>
                     </nav>
                     <div class="container_button">
-                        <button class="item" type="button">
+                        <button type="button">
                             Volume
                         </button>
-                        <button class="item" type="button">A propos</button>
+                        <button type="button">A propos</button>
                     </div>
                 </div>
                 <div id="download">
@@ -97,8 +82,6 @@
                 </div>
             </div> 
         </div>
-
-
 
     </div>
 </body>

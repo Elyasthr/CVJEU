@@ -18,18 +18,17 @@ button{
     position: fixed;
     top: 40px;
     right: 20px;
-    box-shadow: 0px 0px 40px 9px rgb(255, 255, 255,0.4);
+    box-shadow: 0px 0px 40px 9px rgb(255, 255, 255,0.2);
 }
 
-button:active {
+button:active{
     background-color: black;
     color: white;
     transform: translateY(4px);
-    box-shadow: 0px 0px 40px 9px rgb(0, 0, 0,0.4);
+    box-shadow: 0px 0px 40px 9px rgb(0, 0, 0,0.2);
   }
 
-/*deux fichier css pouyr un html (canvas choix etc) ceux utiliser dans dautre page sans vouloir tout melanger*/
-.root {
+.root{
     width: 1100px;
     margin: 0 auto;
     background-color: white;

@@ -12,51 +12,58 @@ $(function(){
         bexp: $('#navigation > ul > li:nth-child(2)'),
         bproj: $('#navigation > ul > li:nth-child(3)'),
         bcroix: $('.croix'),
-        boui: $('#choix > a:nth-child(1)'),
-        bnon: $('#choix > a:nth-child(2)'),
+        boui: $('.choix > a:nth-child(1)'),
+        bnon: $('.choix > a:nth-child(2)'),
     }
 
     //Objet qui regroupe les box
     var box = {
         annonce: $('#box_annonce'),
-        titre: $('#titre'),
-        proj: $('.projet'),
-        exp: $('.experience'),
-        form: $('.formation'),
-        choix: $('.box_choix'),
+        proj: $('.box_choix.projet'),
+        exp: $('.box_choix.experience'),
+        form: $('.box_choix.formation'),
         apropos: $('.box_apropos'),
         contact: $('.box_contact'),
     }
+
 
     //1 seconde apres le lancement de la page une annonce apparait
     setTimeout(function(){
         box.annonce.show();
     },1000);
-
-    //Au survole du titre principal l'annonce apparait
-    box.titre.mouseover(function(){
-        box.annonce.show();
-    })
-
+    
     //Fait apparaitre une boite de dialogue qui propose de jouer ou de voir la partie du cv directement lorsque l'on clique sur une des 3 partie principal du cv et fait apparaitre une boite de dialogue a propos et contact
     boutton.bformation.click(function(){
         box.form.show();
-        boutton.boui.attr('href','#');
-        boutton.bnon.attr('href','#');
+        boutton.boui.click(function(){
+            window.location.href='brickbreaker.html';
+        })
+        boutton.bnon.click(function(){
+            window.location.href='formation.html';
+        })
         })
 
     boutton.bexp.click(function(){
         box.exp.show();
-        boutton.boui.attr('href','#');
-        boutton.bnon.attr('href','#');
+        boutton.boui.click(function(){
+            window.location.href='snake.html';
+        })
+        boutton.bnon.click(function(){
+            window.location.href='experience.html';
+        })
         })
     
     boutton.bproj.click(function(){
         box.proj.show();
-        boutton.boui.attr('href','#');
-        boutton.bnon.attr('href','#');
+        boutton.boui.click(function(){
+            window.location.href='index.html';
         })
-    
+        boutton.bnon.click(function(){
+            window.location.href='projet.html';
+        })
+        })
+
+    //les deux bouton que je vais pas modifier
     boutton.bapropos.click(function(){
         box.apropos.show();
         })
@@ -65,12 +72,12 @@ $(function(){
         box.contact.show();
         })
 
-    //Fait disparaitre la boite de dialogue en cliquant sur la croix 
+    //Fait disparaitre toute boite de dialogue en cliquant sur la croix 
     boutton.bcroix.click(function(){
-        box.choix.hide();
-        box.annonce.hide();
-        box.apropos.hide();
-        box.contact.hide();
+        Object.getOwnPropertyNames(box).forEach(
+            function(i) {
+              box[i].hide();
+            })
     })
 
     //Redirection
@@ -82,7 +89,7 @@ $(function(){
         window.open('img/cvbasique.pdf');
     })
 
-    //Gestion du son d'arriere plan et  volume d'interaction
+    //Gestion du son d'arriere plan 
     var clique = new Audio('audio/clique.mp3');
     var son = new Audio('audio/intro.mp3');
     son.loop = true;
@@ -102,6 +109,7 @@ $(function(){
             }
     })
 
+    //gestion  volume d'interaction
     boutton.bvolume.click(function(){
         if (clique.paused) {
            //Parcours tout les attribut de l'objet boutton
@@ -125,6 +133,5 @@ $(function(){
             boutton.bvolume.css('border','3px solid black');
         }
     })
-
     
 })
