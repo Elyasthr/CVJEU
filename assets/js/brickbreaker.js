@@ -38,7 +38,7 @@ $(function() {
         score: function(){
             ctx.font = "20px 'Press Start 2P'";
             ctx.fillStyle = "white";
-            ctx.fillText("SCORE: "+ jeu.points,(largeurCanvas/2)-80, 30);
+            ctx.fillText("SCORE: "+ jeu.points + ' / 16',(largeurCanvas/2)-80, 30);
         },
 
         dessin: function(){
