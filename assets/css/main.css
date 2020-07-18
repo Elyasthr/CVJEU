@@ -30,7 +30,6 @@ body{
 }
 
 #center{
-    
     display: flex;
     justify-content: space-between;
     height: 386px;
@@ -79,13 +78,10 @@ a:active{
 #box_annonce{
     display: none;
     position: fixed;
-
     z-index: 1;
-
     top: 35%;
     margin: 30px;
     padding: 20px;
-
     background-color: white;
     border: 2px solid darkred;
     color: darkred;
@@ -98,20 +94,14 @@ a:active{
 .box_choix{
     display: none;
     position: fixed;
-
-   
     z-index: 1;
-
     top: 50%;
     left: 36%;
-    
     padding: 20px;
-
     background-color: white;
     border: 2px solid black;
     color: black;
     box-shadow: 0px 0px 40px 9px rgba(0,0,0,0.75);
-
     font-size: 10px;
 }
 
@@ -126,7 +116,6 @@ a:active{
 .croix:hover{
     cursor: pointer;
 }
-
 
 .choix{
     display: flex;
@@ -147,7 +136,8 @@ a:active{
     background-color: black;
     color: white;
 }
-.choix a:active {
+
+.choix a:active{
     background-color: black;
     color: white;
     transform: translateY(4px);
@@ -162,7 +152,6 @@ a:active{
 }
 
 button{
-    
     font-family: 'Press Start 2P', sans-serif;
     color: black;
     background-color: white;
@@ -170,7 +159,6 @@ button{
     width: 150px;
     border: 3px solid black;
     transition-duration: 0.2s;
-    
 }
 
 button:active {
@@ -204,7 +192,6 @@ button:active {
     display: flex;
     align-items: center;
     padding: 0 0 20px 200px;
-
 }
 
 .contact_item a{
@@ -213,7 +200,7 @@ button:active {
 /****************************************************************/
 /***************************APROPOS******************************/
 .box_apropos p{
-    text-align: justify;
+    text-align: justify; 
     line-height: 30px;
 }
 
