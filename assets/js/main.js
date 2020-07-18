@@ -1,7 +1,7 @@
 $(function(){
 
-    //Objet qui regroupe tout les bouton 
-    var boutton = {
+    //Objet qui regroupe tous les boutons 
+    var bouton = {
         bacceuil: $('body > div.acceuil > button'),
         bson:$('#center > div:nth-child(1) > button:nth-child(1)'),
         bvolume: $('#center > div:nth-child(3) > button:nth-child(1)'),
@@ -27,110 +27,117 @@ $(function(){
     }
 
 
-    //1 seconde apres le lancement de la page une annonce apparait
+    //1 seconde après le lancement de la page une annonce apparaît
     setTimeout(function(){
         box.annonce.show();
     },1000);
     
-    //Fait apparaitre une boite de dialogue qui propose de jouer ou de voir la partie du cv directement lorsque l'on clique sur une des 3 partie principal du cv et fait apparaitre une boite de dialogue a propos et contact
-    boutton.bformation.click(function(){
+    //Fait apparaissait une boîte de dialogue qui propose de jouer ou bien de voir la partie du cv directement lorsque l'on clique sur une des 3 parties principales du cv et fait apparaitre la boîte de dialogue du bouton propos et contact
+    bouton.bformation.click(function(){
         box.form.show();
-        boutton.boui.click(function(){
+        bouton.boui.click(function(){
             window.location.href='brickbreaker.html';
         })
-        boutton.bnon.click(function(){
+        bouton.bnon.click(function(){
             window.location.href='formation.html';
         })
         })
 
-    boutton.bexp.click(function(){
+    bouton.bexp.click(function(){
         box.exp.show();
-        boutton.boui.click(function(){
+        bouton.boui.click(function(){
             window.location.href='snake.html';
         })
-        boutton.bnon.click(function(){
+        bouton.bnon.click(function(){
             window.location.href='experience.html';
         })
         })
     
-    boutton.bproj.click(function(){
+    bouton.bproj.click(function(){
         box.proj.show();
-        boutton.boui.click(function(){
+        bouton.boui.click(function(){
             window.location.href='index.html';
         })
-        boutton.bnon.click(function(){
+        bouton.bnon.click(function(){
             window.location.href='projet.html';
         })
         })
 
-    //les deux bouton que je vais pas modifier
-    boutton.bapropos.click(function(){
+    bouton.bapropos.click(function(){
         box.apropos.show();
         })
     
-    boutton.bcontact.click(function(){
+    bouton.bcontact.click(function(){
         box.contact.show();
         })
 
-    //Fait disparaitre toute boite de dialogue en cliquant sur la croix 
-    boutton.bcroix.click(function(){
+    //Retire toute les box en cliquant sur la croix 
+    bouton.bcroix.click(function(){
         Object.getOwnPropertyNames(box).forEach(
             function(i) {
               box[i].hide();
             })
     })
 
-    //Redirection
-    boutton.bacceuil.click(function(){
+    //Redirection vers la page d'accueil
+    bouton.bacceuil.click(function(){
         window.location.href='index.html';
     })
 
-    boutton.bdownload.click(function(){
+    //Redirection pour telecharger le CV
+    bouton.bdownload.click(function(){
         window.open('img/cvbasique.pdf');
     })
 
-    //Gestion du son d'arriere plan 
+    //Gestion du son d'arrière-plan  
     var clique = new Audio('audio/clique.mp3');
     var son = new Audio('audio/intro.mp3');
     son.loop = true;
 
-    boutton.bson.click(function(){
+    bouton.bson.click(function(){
             if (son.paused) {
+                //Active le son d'arriere plan
                 son.play();
-                boutton.bson.css('background-color','black'); 
-                boutton.bson.css('color','white'); 
-                boutton.bson.css('border','3px solid white');
+                //Modification du style du bouton
+                bouton.bson.css('background-color','black'); 
+                bouton.bson.css('color','white'); 
+                bouton.bson.css('border','3px solid white');
             }
             else {
+                //Stop le son d'arriere plan
                 son.pause();
-                boutton.bson.css('background-color','white'); 
-                boutton.bson.css('color','black'); 
-                boutton.bson.css('border','3px solid black');
+                //Modification du style du bouton
+                bouton.bson.css('background-color','white'); 
+                bouton.bson.css('color','black'); 
+                bouton.bson.css('border','3px solid black');
             }
     })
 
-    //gestion  volume d'interaction
-    boutton.bvolume.click(function(){
+    //Gestion du volume des interactions
+    bouton.bvolume.click(function(){
         if (clique.paused) {
-           //Parcours tout les attribut de l'objet boutton
-            for (var propriete in boutton) {
-                boutton[propriete].click(function(){
+           //Parcours tous les attributs de l'objet bouton et active le son
+            for (var propriete in bouton) {
+                bouton[propriete].click(function(){
                     clique.play();
                 })
               }
-            boutton.bvolume.css('background-color','black'); 
-            boutton.bvolume.css('color','white'); 
-            boutton.bvolume.css('border','3px solid white');
+            //Modification du style du bouton
+            bouton.bvolume.css('background-color','black'); 
+            bouton.bvolume.css('color','white'); 
+            bouton.bvolume.css('border','3px solid white');
         }
         else {
-            for (var propriete in boutton) {
-                boutton[propriete].click(function(){
+            //Stop le son de tout les bouton
+            for (var propriete in bouton) {
+                bouton[propriete].click(function(){
                     clique.pause();
                 })
               }
-            boutton.bvolume.css('background-color','white'); 
-            boutton.bvolume.css('color','black'); 
-            boutton.bvolume.css('border','3px solid black');
+            //Modification du style du bouton
+            bouton.bvolume.css('background-color','white'); 
+            bouton.bvolume.css('color','black'); 
+            bouton.bvolume.css('border','3px solid black');
         }
     })
     
