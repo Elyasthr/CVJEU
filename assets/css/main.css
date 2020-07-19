@@ -10,7 +10,7 @@ body{
     margin: 0 auto;
     background-color: white;
   }
-
+  
 #titre{
     text-align: center;
     background-color: black;
@@ -19,7 +19,12 @@ body{
     margin: 0;
 }
 
-.container{
+.cv h3 ,.cv h4,.cv h5,.cv h6{
+    text-align: center;
+    color: black;
+}
+
+.firstcontainer{
     background: url('../../img/wallpaper1.jpg');
     height: 630px;
     border: 5px solid white;
@@ -27,6 +32,14 @@ body{
     flex-direction: column;
     justify-content: center;
     
+}
+.container.cv{
+    background-color: white;
+    height: auto;
+    border: 5px solid darkgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #center{
@@ -45,12 +58,12 @@ body{
     border: 3px solid black;
 }
 
-ul{
+#navigation ul{
     margin:0;
     padding:0;
 }
 
-li{
+#navigation li{
     margin:0;
     padding:40px;
     text-decoration: none;
@@ -60,9 +73,15 @@ li{
     font-size: 30px;
 }
 
-li:hover{
+#navigation li:hover{
     background-color: black;
     color: white;
+}
+
+.cv li{
+    list-style-type: none;
+    padding: 20px 0;
+    color: darkgreen;
 }
 
 a{
@@ -166,6 +185,28 @@ button:active {
     color: white;
     transform: translateY(4px);
 }
+
+
+.acceuil button{
+    font-family: 'Press Start 2P', sans-serif;
+    color: black;
+    background-color: white;
+    height: 50px;
+    width: 150px;
+    border: 3px solid black;
+    transition-duration: 0.2s;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    box-shadow: 0px 0px 40px 9px rgb(255, 255, 255,0.2);
+}
+
+.acceuil button:active{
+    background-color: black;
+    color: white;
+    transform: translateY(4px);
+    box-shadow: 0px 0px 40px 9px rgb(0, 0, 0,0.2);
+  }
 /****************************************************************/
 /***************************CONTACT******************************/
 .box_contact{
