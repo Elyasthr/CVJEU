@@ -56,7 +56,7 @@ $(function(){
     bouton.bproj.click(function(){
         box.proj.show();
         bouton.boui.click(function(){
-            window.location.href='index.html';
+            alert('Le troisième jeu n\'est pas encore implementer, veuillez directement accéder à la partie du CV');
         })
         bouton.bnon.click(function(){
             window.location.href='projet.html';
